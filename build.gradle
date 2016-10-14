@@ -1,0 +1,73 @@
+allprojects {
+
+    apply plugin: 'java'
+
+    group 'fr.skybeastmc'
+    version '1.0.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        ivy {
+            url 'http://www.tcpr.ca/files/'
+
+            layout 'pattern', {
+                artifact '[module]/[module]-[revision].[ext]'
+            }
+        }
+    }
+
+    dependencies {
+        compile 'spigot:spigot:1.10-R0.1-SNAPSHOT-latest'
+    }
+
+    configurations {
+        provided
+    }
+
+    sourceSets {
+        main.compileClasspath += configurations.provided
+        test.compileClasspath += configurations.provided
+        test.runtimeClasspath += configurations.provided
+    }
+}
+
+project(":API") {
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+
+}
+
+project(":Core") {
+
+    task fatjar(type: Jar) {
+        from {
+            (configurations.provided - configurations.compile).collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+        with jar
+    }
+
+    dependencies {
+        provided project(":API")
+    }
+
+}
+
+project(":BukkitProvider") {
+}

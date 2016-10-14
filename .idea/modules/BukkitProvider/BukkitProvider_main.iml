@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":BukkitProvider:main" external.linked.project.path="$MODULE_DIR$/../../../BukkitProvider" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="fr.skybeastmc" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../../../BukkitProvider/build/classes/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../BukkitProvider/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../BukkitProvider/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../BukkitProvider/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: spigot:spigot:1.10-R0.1-SNAPSHOT-latest" level="project" />
+  </component>
+</module>
